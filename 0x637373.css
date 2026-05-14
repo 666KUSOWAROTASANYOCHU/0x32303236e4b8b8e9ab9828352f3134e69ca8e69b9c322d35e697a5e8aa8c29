@@ -1,22 +1,20 @@
-/* 全体の背景を黒、文字を黄緑色（コンソール風）にする */
 body {
     background-color: #1e1e1e;
     color: #00ff33;
     font-family: 'Courier New', Courier, monospace;
     padding: 20px;
     line-height: 1.6;
+    margin: 0;
+    overflow-x: hidden;
 }
 
-/* タイトル部分のデザイン */
 h1 {
     color: #ffffff;
     font-size: 20px;
     border-bottom: 1px solid #333333;
     padding-bottom: 10px;
-    margin-bottom: 20px;
 }
 
-/* 16進数のテキストを表示するエリア */
 .hex-code {
     color: #888888;
     word-break: break-all;
@@ -26,9 +24,60 @@ h1 {
     border: 1px solid #444444;
 }
 
-/* 行番号風の装飾（デベロッパーツール感の演出） */
-.hex-code::before {
-    content: "0x0000: ";
-    color: #569cd6;
+.blur-effect {
+    filter: blur(8px);
+    transition: filter 0.3s ease;
+}
+
+#hint-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #00ff33;
+    color: #1e1e1e;
+    border: none;
+    font-size: 24px;
     font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,255,51,0.3);
+    z-index: 100;
+}
+
+#hint-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #00ff33;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,255,51,0.5);
+}
+
+.modal-content button {
+    background-color: transparent;
+    color: #00ff33;
+    border: 1px solid #00ff33;
+    padding: 5px 15px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.hidden {
+    display: none !important;
 }
